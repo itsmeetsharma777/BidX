@@ -1,0 +1,3 @@
+package com.bidx.filter;
+import jakarta.servlet.*;import jakarta.servlet.annotation.*;import jakarta.servlet.http.*;import java.io.*;import com.bidx.model.*;
+@WebFilter("/auction/create") public class CreatorFilter implements Filter {public void doFilter(ServletRequest x,ServletResponse y,FilterChain c)throws IOException,ServletException{HttpServletRequest r=(HttpServletRequest)x;HttpServletResponse p=(HttpServletResponse)y;User u=(User)r.getSession().getAttribute("user");if(u==null||u.role!=Role.CREATOR){r.getSession().setAttribute("flash","Only an Auction Creator account can create auctions.");r.getSession().setAttribute("flashType","danger");p.sendRedirect(r.getContextPath()+"/auctions");return;}c.doFilter(x,y);}}

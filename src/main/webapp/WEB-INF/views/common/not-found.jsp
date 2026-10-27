@@ -1,0 +1,1 @@
+<%@ include file="header.jsp" %><div class="empty"><h1>Oops! This auction doesn't exist.</h1><a class="button" href="${pageContext.request.contextPath}/auctions">Browse auctions</a></div><%@ include file="footer.jsp" %>

@@ -1,0 +1,3 @@
+package com.bidx.model;
+import java.math.BigDecimal; import java.time.LocalDateTime; import java.text.NumberFormat; import java.util.Locale;
+public class Bid { public String id,auctionId,bidderId; public BigDecimal amount; public LocalDateTime createdAt=LocalDateTime.now(); public String getId(){return id;} public String getAuctionId(){return auctionId;} public String getBidderId(){return bidderId;} public BigDecimal getAmount(){return amount;} public String getAmountFormatted(){return NumberFormat.getNumberInstance(Locale.forLanguageTag("en-IN")).format(amount);} public LocalDateTime getCreatedAt(){return createdAt;} }

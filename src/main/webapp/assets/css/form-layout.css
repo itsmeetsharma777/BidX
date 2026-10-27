@@ -1,0 +1,2 @@
+/* Refined seller form layout: keeps fields comfortably visible on laptops. */
+.form-page{grid-template-columns:minmax(250px,.7fr) minmax(580px,1.3fr);gap:48px;max-width:1200px;margin:10px auto}.form-page h1{font-size:clamp(42px,4.3vw,60px);max-width:460px}.form-page>div{padding-top:28px}.grid-form{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;padding:26px}.grid-form textarea{min-height:78px}@media(max-width:1000px){.form-page{grid-template-columns:1fr;max-width:720px}.form-page>div{padding-top:0}}

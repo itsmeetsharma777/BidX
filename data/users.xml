@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+            
+    
+    <user>
+                        
+        
+        <id>USR-58423</id>
+                        
+        
+        <name>Meet Sharma</name>
+                        
+        
+        <username>meetsharma777</username>
+                        
+        
+        <email>meetsharma0702@gmail.com</email>
+                        
+        
+        <phone>9109255330</phone>
+                        
+        
+        <passwordHash>tnMfJyN/dsy9Y6ajgQkl3w==:mt3GsKkZ6JIZxgvcXQDWS1n7F7gIB4sJb+n4IdwEKqQ=</passwordHash>
+                        
+        
+        <role>CREATOR</role>
+                        
+        
+        <createdAt>2026-10-07T00:27:38.525380</createdAt>
+                        
+        
+        <status>ACTIVE</status>
+                    
+    
+    </user>
+        
+    
+    <user>
+                
+        <id>USR-58425</id>
+                
+        <name>Satyam Garg</name>
+                
+        <username>Satyamgarg777</username>
+                
+        <email>satyamgarg755@gmail.com</email>
+                
+        <phone>7974522411</phone>
+                
+        <passwordHash>iX6uUgTa5V6+Z2VtFWFKig==:xjspMAvfHWfreGhAc0n2s/ETJI+GotcLq/eXdxWw4Rg=</passwordHash>
+                
+        <role>MEMBER</role>
+                
+        <createdAt>2026-10-07T00:29:44.391729</createdAt>
+                
+        <status>ACTIVE</status>
+            
+    </user>
+    
+    <user>
+        <id>USR-58427</id>
+        <name>Punit Mittal</name>
+        <username>Punitmittal777</username>
+        <email>punitmittal@gmail.com</email>
+        <phone>8529110075</phone>
+        <passwordHash>Qm1vIVNyCX05ZXrd3/jdvQ==:EJQvA3u2TDBK3I/zHNKAdmsDR5xRbg+922SNU1Oez0U=</passwordHash>
+        <role>MEMBER</role>
+        <createdAt>2026-10-07T00:31:37.089692</createdAt>
+        <status>ACTIVE</status>
+    </user>
+</users>

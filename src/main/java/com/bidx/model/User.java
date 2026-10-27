@@ -1,0 +1,3 @@
+package com.bidx.model;
+import java.time.LocalDateTime;
+public class User { public String id,name,username,email,phone,passwordHash,status="ACTIVE"; public Role role=Role.MEMBER; public LocalDateTime createdAt=LocalDateTime.now(); public User(){} public User(String id,String name,String username,String email,String phone,String hash,Role role){this.id=id;this.name=name;this.username=username;this.email=email;this.phone=phone;this.passwordHash=hash;this.role=role;} public String getId(){return id;} public String getName(){return name;} public String getUsername(){return username;} public String getEmail(){return email;} public Role getRole(){return role;} }

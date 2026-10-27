@@ -1,0 +1,1 @@
+<%@ include file="header.jsp" %><div class="empty"><h1>We couldn't complete that request.</h1><p>Please try again or return to the marketplace.</p><a href="${pageContext.request.contextPath}/">Return home</a></div><%@ include file="footer.jsp" %>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bids>
+        
+    <bid>
+                
+        <id>BID-58426</id>
+                
+        <auctionId>AUC-58424</auctionId>
+                
+        <bidderId>USR-58425</bidderId>
+                
+        <amount>4400000</amount>
+                
+        <createdAt>2026-10-07T00:30:41.396656</createdAt>
+            
+    </bid>
+    
+    <bid>
+        <id>BID-58428</id>
+        <auctionId>AUC-58424</auctionId>
+        <bidderId>USR-58427</bidderId>
+        <amount>500000000</amount>
+        <createdAt>2026-10-07T00:32:05.711723</createdAt>
+    </bid>
+</bids>

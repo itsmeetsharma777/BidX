@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<auctions>
+                
+    
+    
+    <auction>
+        <id>AUC-58424</id>
+        <sellerId>USR-58423</sellerId>
+        <title>Television </title>
+        <description>this is the first tv in the world used in 90s </description>
+        <category>Electronics</category>
+        <condition>Like New</condition>
+        <imagePath/>
+        <notes/>
+        <startingPrice>200000</startingPrice>
+        <currentHighestBid>500000000</currentHighestBid>
+        <highestBidderId>USR-58427</highestBidderId>
+        <minimumIncrement>200000</minimumIncrement>
+        <startAt>2026-10-07T00:28</startAt>
+        <endAt>2026-10-07T00:40</endAt>
+        <status>COMPLETED</status>
+        <winnerId>USR-58427</winnerId>
+        <createdAt>2026-10-07T00:28:44.238197</createdAt>
+        <updatedAt>2026-10-07T00:40:01.739910</updatedAt>
+    </auction>
+            
+
+
+</auctions>
