@@ -1,2 +1,58 @@
-package com.bidx.service;import com.bidx.model.*;import com.bidx.repository.*;import com.bidx.util.*;import java.math.*;import java.time.*;import java.util.*;
-public class BidService {private static final Object LOCK=new Object();private final AuctionRepository auctions=new AuctionRepository();private final BidRepository bids=new BidRepository();private final AuctionService auctionService=new AuctionService();public void place(String auctionId,String bidderId,String raw){synchronized(LOCK){Auction a=auctions.find(auctionId);if(a==null)throw new IllegalArgumentException("Auction not found.");a.status=auctionService.statusFor(a);if(a.status!=AuctionStatus.ACTIVE&&a.status!=AuctionStatus.ENDING_SOON){auctions.update(a);throw new IllegalArgumentException("This auction is not accepting bids.");}if(a.sellerId.equals(bidderId))throw new IllegalArgumentException("You cannot bid on your own auction.");BigDecimal amount;try{amount=new BigDecimal(raw.trim());}catch(Exception e){throw new IllegalArgumentException("Enter a valid bid amount.");}BigDecimal minimum=a.currentHighestBid.add(a.minimumIncrement);if(amount.compareTo(minimum)<0)throw new IllegalArgumentException("Your bid must be at least Rs. "+minimum.toPlainString()+".");Bid b=new Bid();b.id=IdGenerator.next("BID");b.auctionId=a.id;b.bidderId=bidderId;b.amount=amount;b.createdAt=LocalDateTime.now();bids.save(b);a.currentHighestBid=amount;a.highestBidderId=bidderId;a.updatedAt=LocalDateTime.now();auctions.update(a);}}public List<Bid> history(String id){return bids.forAuction(id);}public List<Bid> mine(String id){return bids.forUser(id);} }
+package com.bidx.service;
+
+import com.bidx.model.*;
+import com.bidx.repository.*;
+import com.bidx.util.*;
+import java.math.*;
+import java.time.*;
+import java.util.*;
+
+public class BidService {
+    private static final Object LOCK = new Object();
+    private final AuctionRepository auctions = new AuctionRepository();
+    private final BidRepository bids = new BidRepository();
+    private final AuctionService auctionService = new AuctionService();
+
+    public void place(String auctionId, String bidderId, String raw) {
+        synchronized (LOCK) {
+            Auction a = auctions.find(auctionId);
+            if (a == null)
+                throw new IllegalArgumentException("Auction not found.");
+            a.status = auctionService.statusFor(a);
+            if (a.status != AuctionStatus.ACTIVE && a.status != AuctionStatus.ENDING_SOON) {
+                auctions.update(a);
+                throw new IllegalArgumentException("This auction is not accepting bids.");
+            }
+            if (a.sellerId.equals(bidderId))
+                throw new IllegalArgumentException("You cannot bid on your own auction.");
+            BigDecimal amount;
+            try {
+                amount = new BigDecimal(raw.trim());
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Enter a valid bid amount.");
+            }
+            BigDecimal minimum = a.currentHighestBid.add(a.minimumIncrement);
+            if (amount.compareTo(minimum) < 0)
+                throw new IllegalArgumentException("Your bid must be at least Rs. " + minimum.toPlainString() + ".");
+            Bid b = new Bid();
+            b.id = IdGenerator.next("BID");
+            b.auctionId = a.id;
+            b.bidderId = bidderId;
+            b.amount = amount;
+            b.createdAt = LocalDateTime.now();
+            bids.save(b);
+            a.currentHighestBid = amount;
+            a.highestBidderId = bidderId;
+            a.updatedAt = LocalDateTime.now();
+            auctions.update(a);
+        }
+    }
+
+    public List<Bid> history(String id) {
+        return bids.forAuction(id);
+    }
+
+    public List<Bid> mine(String id) {
+        return bids.forUser(id);
+    }
+}

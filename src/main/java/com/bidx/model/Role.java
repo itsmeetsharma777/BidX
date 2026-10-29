@@ -1,1 +1,5 @@
-package com.bidx.model; public enum Role { CREATOR, MEMBER }
+package com.bidx.model;
+
+public enum Role {
+    CREATOR, MEMBER
+}

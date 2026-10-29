@@ -1,2 +1,33 @@
-package com.bidx.service;import com.bidx.model.*;import com.bidx.repository.*;import com.bidx.util.*;
-public class AuthService {private final UserRepository users=new UserRepository();public User register(String name,String username,String email,String phone,String password,String accountType){if(name==null||name.isBlank()||!username.matches("[A-Za-z0-9_]{3,30}")||!email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")||!phone.matches("[0-9+ -]{7,16}")||password.length()<8)throw new IllegalArgumentException("Please provide valid registration details. Passwords need at least 8 characters.");if(users.findByLogin(username)!=null||users.all().stream().anyMatch(u->u.email.equalsIgnoreCase(email)))throw new IllegalArgumentException("Username or email is already registered.");Role role="CREATOR".equals(accountType)?Role.CREATOR:Role.MEMBER;User u=new User(IdGenerator.next("USR"),name.trim(),username.trim(),email.trim(),phone.trim(),PasswordUtil.hash(password),role);users.save(u);return u;}public User login(String login,String password){User u=users.findByLogin(login==null?"":login.trim());if(u==null||!"ACTIVE".equals(u.status)||!PasswordUtil.matches(password==null?"":password,u.passwordHash))throw new IllegalArgumentException("Invalid username/email or password.");return u;}}
+package com.bidx.service;
+
+import com.bidx.model.*;
+import com.bidx.repository.*;
+import com.bidx.util.*;
+
+public class AuthService {
+    private final UserRepository users = new UserRepository();
+
+    public User register(String name, String username, String email, String phone, String password,
+            String accountType) {
+        if (name == null || name.isBlank() || !username.matches("[A-Za-z0-9_]{3,30}")
+                || !email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$") || !phone.matches("[0-9+ -]{7,16}")
+                || password.length() < 8)
+            throw new IllegalArgumentException(
+                    "Please provide valid registration details. Passwords need at least 8 characters.");
+        if (users.findByLogin(username) != null || users.all().stream().anyMatch(u -> u.email.equalsIgnoreCase(email)))
+            throw new IllegalArgumentException("Username or email is already registered.");
+        Role role = "CREATOR".equals(accountType) ? Role.CREATOR : Role.MEMBER;
+        User u = new User(IdGenerator.next("USR"), name.trim(), username.trim(), email.trim(), phone.trim(),
+                PasswordUtil.hash(password), role);
+        users.save(u);
+        return u;
+    }
+
+    public User login(String login, String password) {
+        User u = users.findByLogin(login == null ? "" : login.trim());
+        if (u == null || !"ACTIVE".equals(u.status)
+                || !PasswordUtil.matches(password == null ? "" : password, u.passwordHash))
+            throw new IllegalArgumentException("Invalid username/email or password.");
+        return u;
+    }
+}

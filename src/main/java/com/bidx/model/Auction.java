@@ -1,3 +1,74 @@
 package com.bidx.model;
-import java.math.BigDecimal;import java.text.NumberFormat;import java.time.LocalDateTime;import java.util.Locale;
-public class Auction {public String id,sellerId,title,description,category,condition,imagePath,notes,highestBidderId,winnerId;public BigDecimal startingPrice=BigDecimal.ZERO,currentHighestBid=BigDecimal.ZERO,minimumIncrement=BigDecimal.ONE;public LocalDateTime startAt,endAt,createdAt=LocalDateTime.now(),updatedAt=LocalDateTime.now();public AuctionStatus status=AuctionStatus.UPCOMING;private static String money(BigDecimal value){return NumberFormat.getNumberInstance(Locale.forLanguageTag("en-IN")).format(value);}public String getId(){return id;}public String getTitle(){return title;}public String getCategory(){return category;}public String getSellerId(){return sellerId;}public BigDecimal getStartingPrice(){return startingPrice;}public BigDecimal getCurrentHighestBid(){return currentHighestBid;}public String getCurrentHighestBidFormatted(){return money(currentHighestBid);}public BigDecimal getMinimumIncrement(){return minimumIncrement;}public AuctionStatus getStatus(){return status;}public LocalDateTime getEndAt(){return endAt;}public String getDescription(){return description;}public String getCondition(){return condition;}public String getImagePath(){return imagePath;}public String getWinnerId(){return winnerId;}}
+
+import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.time.LocalDateTime;
+import java.util.Locale;
+
+public class Auction {
+    public String id, sellerId, title, description, category, condition, imagePath, notes, highestBidderId, winnerId;
+    public BigDecimal startingPrice = BigDecimal.ZERO, currentHighestBid = BigDecimal.ZERO,
+            minimumIncrement = BigDecimal.ONE;
+    public LocalDateTime startAt, endAt, createdAt = LocalDateTime.now(), updatedAt = LocalDateTime.now();
+    public AuctionStatus status = AuctionStatus.UPCOMING;
+
+    private static String money(BigDecimal value) {
+        return NumberFormat.getNumberInstance(Locale.forLanguageTag("en-IN")).format(value);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getSellerId() {
+        return sellerId;
+    }
+
+    public BigDecimal getStartingPrice() {
+        return startingPrice;
+    }
+
+    public BigDecimal getCurrentHighestBid() {
+        return currentHighestBid;
+    }
+
+    public String getCurrentHighestBidFormatted() {
+        return money(currentHighestBid);
+    }
+
+    public BigDecimal getMinimumIncrement() {
+        return minimumIncrement;
+    }
+
+    public AuctionStatus getStatus() {
+        return status;
+    }
+
+    public LocalDateTime getEndAt() {
+        return endAt;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public String getWinnerId() {
+        return winnerId;
+    }
+}
